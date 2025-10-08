@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Global Kitchen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body, html {
             margin: 0;
@@ -69,6 +70,58 @@
 
         .nav-links a:hover {
             color: #e67300; 
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px 0;
+            }
+
+            .header img {
+                height: 120px;
+                width: auto;
+            }
+
+            .site-title {
+                font-size: 32px;
+            }
+
+            .subscript-text {
+                font-size: 16px;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 10px;
+            }
+
+            .nav-links a {
+                font-size: 18px;
+                margin: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-title {
+                font-size: 26px;
+            }
+
+            .header img {
+                height: 90px;
+            }
+
+            .subscript-text {
+                font-size: 14px;
+            }
+
+            .nav-links a {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
