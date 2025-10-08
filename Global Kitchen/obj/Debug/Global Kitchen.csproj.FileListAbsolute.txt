@@ -1,0 +1,59 @@
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\Global Kitchen.dll.config
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\Global Kitchen.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\Global Kitchen.pdb
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\csc.exe
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\csc.exe.config
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\csc.rsp
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\csi.exe
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\csi.exe.config
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\csi.rsp
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\Microsoft.Managed.Core.targets
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.AppContext.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.Collections.Immutable.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.Console.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.Globalization.Calendars.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.IO.Compression.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.IO.FileSystem.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.Net.Http.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.Net.Sockets.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.Reflection.Metadata.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.ValueTuple.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.Xml.XmlDocument.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.Xml.XPath.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\vbc.exe
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\vbc.exe.config
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\vbc.rsp
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\VBCSCompiler.exe
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\roslyn\VBCSCompiler.exe.config
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\obj\Debug\Global Kitchen.csproj.AssemblyReference.cache
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\obj\Debug\Global Kitchen.csproj.CoreCompileInputs.cache
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\obj\Debug\Global K.1242DB28.Up2Date
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\obj\Debug\Global Kitchen.dll
+D:\User\APU\Web\Assigment\Global Kitchen\Global Kitchen\obj\Debug\Global Kitchen.pdb
