@@ -2,3 +2,18 @@ This is the push to update the code to GitHub
 <!-- git add "Global Kitchen/FirstPage.html" -->
 <!-- git commit -m "Update FirstPage.html" -->
 <!-- git push origin main -->
+<<<<<<< Updated upstream
+
+Before each push, make sure you're in sync with the remote version.
+# 1️⃣ Check the current status
+git status
+# 2️⃣ Pull remote updates (very important)
+git pull origin main
+# 3️⃣ Add files to upload (update all)
+git add .
+# 4️⃣ Commit changes (with a description)
+git commit -m "Update <filename> or <feature>"
+# 5️⃣ Push to GitHub
+git push origin main
+=======
+>>>>>>> Stashed changes
