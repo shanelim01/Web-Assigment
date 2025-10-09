@@ -190,6 +190,7 @@
        .published-recipes {
            flex: 1;
            min-width: 300px;
+           max-width: 45%;
            background: rgba(255,255,255,0.85);
            border-radius: 16px;
            padding: 25px;
@@ -218,14 +219,6 @@
            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
        }
 
-       .recipe-card img {
-           width: 80px;
-           height: 80px;
-           border-radius: 8px;
-           object-fit: cover;
-           margin-right: 15px;
-       }
-
        .recipe-info h3 {
            margin: 0;
            font-size: 18px;
@@ -236,27 +229,6 @@
            margin: 5px 0 0 0;
            color: #e67300;
            font-weight: bold;
-       }
-
-       /* Right: Add new recipe */
-      .add-recipe-panel {
-           flex: 1;
-           min-width: 350px;
-           background: rgba(255,255,255,0.85);
-           border-radius: 16px;
-           padding: 25px;
-           box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      }
-
-       .add-recipe-panel h2 {
-           text-align: center;
-           color: #333;
-       }
-
-       .add-recipe-panel p {
-           text-align: center;
-           color: #555;
-           margin-bottom: 20px;
        }
 
         /* User Stats Section */
@@ -316,20 +288,41 @@
             margin: 0;
         }
 
-        .recipe-form {
+         /* Right: Add new recipe */
+        .add-recipe-panel {
+            flex: 1;
+            min-width: 350px;
+            background: rgba(255,255,255,0.85);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .add-recipe-panel h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .add-recipe-panel p {
+            text-align: center;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .add-recipe-form {
              display: flex;
              flex-direction: column;
              gap: 15px;
         }
 
-        .recipe-form label {
+        .add-recipe-form label {
             font-weight: bold;
             color: #333;
         }
 
-        .recipe-form input[type="text"],
-        .recipe-form textarea,
-        .recipe-form input[type="file"] {
+        .add-recipe-form input[type="text"],
+        .add-recipe-form textarea,
+        .add-recipe-form input[type="file"] {
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 8px;
@@ -338,19 +331,19 @@
             transition: box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
-        .recipe-form input:focus,
-        .recipe-form textarea:focus {
+        .add-recipe-form input:focus,
+        .add-recipe-form textarea:focus {
             outline: none;
             border-color: #e67300;
             box-shadow: 0 0 6px rgba(230,115,0,0.3);
         }
 
-        .recipe-form textarea {
+        .add-recipe-form textarea {
             min-height: 100px;
             resize: vertical;
         }
 
-        .recipe-form button {
+        .add-recipe-form button {
             margin-top: 10px;
             align-self: center;
             padding: 12px 40px;
@@ -436,6 +429,7 @@
             </div>
         </section>
 
+         <!-- Recipe Record -->
         <section class="user-recipes">
             <div class="published-recipes">
                 <h2>Your Recipes</h2>
@@ -455,11 +449,12 @@
                 </div>
             </div>
             
+            <!-- Add new recipe -->
             <div class="add-recipe-panel">
                 <h2>Add Your Own Recipe</h2>
                 <p>Share your favorite dish with the world! Upload an image, give it a name, and describe your creation.</p>
                 
-                <form class="recipe-form">
+                <div class="add-recipe-form">
                     <label>Recipe Name</label>
                     <input type="text" placeholder="e.g. Creamy Carbonara" required />
                     
@@ -467,7 +462,7 @@
                     <textarea placeholder="Write a short description about your recipe..." required></textarea>
                     
                     <button type="submit">Upload Recipe</button>
-                </form>
+                </div>
             </div>
         </section>
     </form>
