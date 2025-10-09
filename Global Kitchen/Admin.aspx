@@ -37,6 +37,27 @@
             color: #666;
         }
 
+        .admin-pic {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .admin-pic img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: 3px solid rgba(255,255,255,0.8);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .admin-pic img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+        }
+
         /* === Panels Container === */
         .admin-panels {
             display: flex;
@@ -183,6 +204,9 @@
                 <h1>Welcome, Admin!</h1>
                 <h1> Johan Welson </h1>
                 <p>Here you can review user submissions, view statistics, and post advertisements.</p>
+                <div class="admin-pic">
+                    <img src="Image/UserImage.jpg" alt="Admin Profile Picture"/>
+                </div>
             </div>
 
             <div class="admin-panels">
