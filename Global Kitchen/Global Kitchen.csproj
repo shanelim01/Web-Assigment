@@ -68,6 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin.aspx" />
+    <Content Include="App_Data\WebDB.mdf" />
+    <Content Include="App_Data\WebDB_log.ldf">
+      <DependentUpon>WebDB.mdf</DependentUpon>
+    </Content>
     <Content Include="FirstPage.html" />
     <Content Include="Index.aspx" />
     <Content Include="Login.aspx" />
