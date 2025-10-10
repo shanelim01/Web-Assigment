@@ -131,6 +131,96 @@
             box-shadow: 0 3px 8px rgba(0,0,0,0.2);
         }
 
+        /* Account Management Panel */
+        .account-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .account-form input,
+        .account-form select {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            background: rgba(255,255,255,0.95);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .account-form input:focus,
+        .account-form select:focus {
+            border-color: #e67300;
+            box-shadow: 0 0 6px rgba(230,115,0,0.3);
+        }
+
+        .search-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #e67300, #ffb347);
+            cursor: pointer;
+            align-self: flex-start;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .search-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        /* User List Display */
+        .user-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .user-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff8ee;
+            padding: 10px 15px;
+            border-radius: 8px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+        }
+
+        .delete-btn {
+            background: linear-gradient(135deg, #e53935, #ef5350);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 14px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s ease;
+        }
+
+        .delete-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Bottom Panels (Popular + Advertisement)*/
+        .bottom-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .bottom-panels {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+
         /* === Popular Category Panel === */
         .chart-box {
             text-align: center;
@@ -229,7 +319,43 @@
                     </div>
                 </div>
 
-                <!-- Panel 2: Popular Categories -->
+                <!-- Panel 2: Account Management -->
+                <div class="panel">
+                    <h2> Manage User Accounts </h2>
+                    <div class="account-form">
+                        <label> Search by Name</label>
+                        <input type="text" placeholder="Enter username..." />
+
+                        <label> Filter by Country </label>
+                        <select>
+                            <option value=""> Select Country </option>
+                            <option value="Malaysia"> Malaysia </option>
+                            <option value="Singapore"> Singapore </option>
+                            <option value="Japan"> Japan </option>
+                            <option value="German"> German </option>
+                            <option value="Cina"> Cina </option>
+                            <option value="Korea"> Korea </option>
+
+                        </select>
+                        
+                        <button type="button" class="search-btn"> Search </button>
+                    </div>
+
+                    <div class="user-list">
+                        <div class="user-card">
+                            <p><strong>@EmilyTan</strong> - Malaysia</p>
+                            <button class="delete-btn"> Delete </button>
+                        </div>
+                        <div class="user-card">
+                            <p><strong>@Kenta Mentori</strong> - Japan</p>
+                            <button class="delete-btn"> Delete </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel 3: Popular Categories -->
+            <div class="bottom-column">
                 <div class="panel">
                     <h2>Most Popular Recipe Type</h2>
                     <div class="chart-box">
@@ -239,7 +365,7 @@
                     </div>
                 </div>
 
-                <!-- Panel 3: Advertisement -->
+                <!-- Panel 4: Advertisement -->
                 <div class="panel">
                     <h2>Post Advertisement</h2>
                     <div class="ad-form">
