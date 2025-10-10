@@ -144,6 +144,7 @@
                 <a href="Recipes.aspx"> Recipes </a>
                 <a href="UserPage.aspx"> Profile </a>
                 <a href="login.aspx"> Login </a>
+                <a href="Admin.aspx"> Admin </a>
             </nav>
         </header>
      </form>
