@@ -243,6 +243,22 @@
             width: 100%;
         }
 
+        .ad-form input[type="file"] {
+            padding: 8px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            font-size: 15px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ad-form input[type="file"]:focus {
+            outline: none;
+            border-color: #e67300;
+            box-shadow: 0 0 6px rgba(230,115,0,0.3);
+        }
+
         .ad-form input,
         .ad-form textarea {
             width: 100%;
@@ -369,8 +385,12 @@
                 <div class="panel">
                     <h2>Post Advertisement</h2>
                     <div class="ad-form">
+                        <label>Upload Advertisement Image</label>
+                        <input type="file" accept="image/*" required />
+
                         <input type="text" placeholder="Ad Title (e.g., New Cooking Challenge)" required />
                         <textarea placeholder="Write your announcement or promotional content..." required></textarea>
+
                         <button type="submit">Publish Ad</button>
                     </div>
                 </div>
