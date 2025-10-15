@@ -72,10 +72,11 @@
     <Content Include="App_Data\WebDB_log.ldf">
       <DependentUpon>WebDB.mdf</DependentUpon>
     </Content>
-    <Content Include="FirstPage.html" />
+    <Content Include="FirstPage.aspx" />
     <Content Include="Index.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Recipes.aspx" />
+    <Content Include="RecipeTemplate.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="UserModifyPage.aspx" />
     <Content Include="UserPage.aspx" />
@@ -88,6 +89,13 @@
     </Compile>
     <Compile Include="Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FirstPage.aspx.cs">
+      <DependentUpon>FirstPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FirstPage.aspx.designer.cs">
+      <DependentUpon>FirstPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
@@ -110,6 +118,13 @@
     </Compile>
     <Compile Include="Recipes.aspx.designer.cs">
       <DependentUpon>Recipes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeTemplate.aspx.cs">
+      <DependentUpon>RecipeTemplate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecipeTemplate.aspx.designer.cs">
+      <DependentUpon>RecipeTemplate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
