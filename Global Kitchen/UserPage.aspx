@@ -320,6 +320,21 @@
             color: #333;
         }
 
+        .add-recipe-form input[type="file"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.9);
+            cursor: pointer;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .add-recipe-form input[type="file"]:hover {
+            border-color: #e67300;
+            box-shadow: 0 0 6px rgba(230,115,0,0.3);
+        }
+
+
         .add-recipe-form input[type="text"],
         .add-recipe-form textarea,
         .add-recipe-form input[type="file"] {
@@ -455,6 +470,9 @@
                 <p>Share your favorite dish with the world! Upload an image, give it a name, and describe your creation.</p>
                 
                 <div class="add-recipe-form">
+                    <label>Upload Recipe Image</label>
+                    <input type="file" accept="image/*" required />
+
                     <label>Recipe Name</label>
                     <input type="text" placeholder="e.g. Creamy Carbonara" required />
                     
