@@ -17,3 +17,6 @@ git commit -m "Update <filename> or <feature>"
 git push origin main
 =======
 >>>>>>> Stashed changes
+
+pull the file
+git pull origin main
