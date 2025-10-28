@@ -21,43 +21,62 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
-            background: rgba(255,255,255,0.8);
+            padding: 10px 30px;
+            background: rgba(255,255,255,0.9);
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             z-index: 10;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+        }
+
+        .header img {
+            height: 100px;
+            width: auto;
+            display: block;
+            margin: 0 auto;
         }
 
         .title-area {
             text-align: center;
             flex: 1;
+            min-width: 200px;
         }
 
-        .site-title {
-            font-size: 40px;
+        .subscript-text {
+            font-size: 16px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .site-title{
+            font-size: 36px;
             font-weight: bold;
             margin: 0;
         }
 
-        .subscript-text {
-            font-size: 18px;
-            color: #666;
-            margin-top: 5px;
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: nowrap;
         }
 
         .nav-links a {
-            margin-right: 50px;
             text-decoration: none;
             color: #333;
             font-weight: 500;
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
             color: #e67300;
         }
+
 
         /* === HERO SECTION === */
         .hero {
@@ -67,202 +86,339 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
-                        url('Image/kitchen-bg.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('Image/kitchen-bg.jpg') center/cover no-repeat;
             margin-top: 100px;
             padding: 0 20px;
         }
 
-        .hero h1 {
+         .hero h1 {
             font-size: 60px;
             font-weight: bold;
-            color: #222;
-            margin-bottom: 20px;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    color: #555;
+    max-width: 700px;
+    line-height: 1.6;
+}
+
+/* === FEATURED SECTION === */
+.featured-section {
+    max-width: 1100px;
+    margin: 80px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.featured-section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.featured-recipes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.recipe-card {
+    background: rgba(255,255,255,0.95);
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.recipe-card:hover {
+    transform: translateY(-8px);
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.recipe-card h3 {
+    margin: 15px 0 8px 0;
+    font-size: 22px;
+}
+
+.recipe-card p {
+    color: #666;
+    font-size: 15px;
+    padding: 0 15px 20px;
+}
+
+/* === CTA SECTION === */
+.cta {
+    text-align: center;
+    margin: 100px 20px;
+}
+
+.cta h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.cta p {
+    font-size: 20px;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.cta button {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.cta button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* === FOOTER === */
+.footer {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+    padding: 50px 20px 20px;
+    margin-top: 80px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 220px;
+}
+
+.footer-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffb347;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #ffb347;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: #ddd;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #ff9800;
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.social-icons img {
+    width: 28px;
+    height: 28px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #aaa;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 15px;
+}
+
+        /* === RESPONSIVE RULES === */
+        @media (max-width: 1024px) {
+            .hero h1 { 
+                font-size: 48px; 
+            }
+
+            .hero p { 
+                font-size: 18px;
+            }
+
+            。header img{
+                height: 70px;
+            }
+
+            .site-title{
+                font-size: 30px;
+            }
+
+            .nav-links{
+                gap: 20px;
+            }
         }
 
-        .hero p {
-            font-size: 20px;
-            color: #555;
-            max-width: 700px;
-            line-height: 1.6;
-        }
-
-        /* === FEATURED SECTION === */
-        .featured-section {
-            max-width: 1100px;
-            margin: 80px auto;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .featured-section h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-
-        .featured-recipes {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .recipe-card {
-            background: rgba(255,255,255,0.95);
-            border-radius: 16px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            overflow: hidden;
-            width: 300px;
-            transition: transform 0.3s ease;
-        }
-
-        .recipe-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .recipe-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .recipe-card h3 {
-            margin: 15px 0 8px 0;
-            font-size: 22px;
-        }
-
-        .recipe-card p {
-            color: #666;
-            font-size: 15px;
-            padding: 0 15px 20px;
-        }
-
-        /* === CTA SECTION === */
-        .cta {
-            text-align: center;
-            margin: 100px 20px;
-        }
-
-        .cta h2 {
-            font-size: 34px;
-            margin-bottom: 20px;
-        }
-
-        .cta p {
-            font-size: 20px;
-            color: #555;
-            max-width: 700px;
-            margin: 0 auto 30px auto;
-            line-height: 1.6;
-            text-align: center;
-        }
-
-        .cta button {
-            background: linear-gradient(135deg, #ff7e5f, #feb47b);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 30px;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.3s ease;
-        }
-
-        .cta button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-        }
-
-        .footer {
-            background-color: #1e1e1e;
-            color: #f1f1f1;
-            padding: 50px 20px 20px;
-            margin-top: 80px;
-            font-family: Arial, sans-serif;
-        }
-
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-            gap: 40px;
-        }
-
-        .footer-column {
-            flex: 1;
-            min-width: 220px;
-        }
-
-        .footer-title {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ffb347;
-        }
-
-        .footer-column h3 {
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: #ffb347;
-        }
-
-        .footer-column ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 8px;
-        }
-
-        .footer-column ul li a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-column ul li a:hover {
-            color: #ff9800;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 12px;
-        }
-
-        .social-icons img {
-            width: 28px;
-            height: 28px;
-            transition: transform 0.3s ease;
-        }
-
-        .social-icons img:hover {
-            transform: scale(1.2);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 14px;
-            color: #aaa;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            padding-top: 15px;
-        }
-
-        /* === Responsive === */
         @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+                height: auto;
+                padding: 8px 0;
+            }
+
+            .header img {
+                height: 45px;
+                margin-bottom: 4px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-top: 5px;
+            }
+
+            .nav-links a {
+                font-size: 15px;
+            }
+
+            .site-title {
+                font-size: 20px;
+                margin: 0;
+            }
+
+            .subscript-text {
+                font-size: 12px;
+                margin-top: 2px;
+            }
+
+            .title-area{
+                margin-bottom: 5px;
+            }
+
+            .hero {
+                padding: 130px;
+            }
+
             .hero h1 {
-                font-size: 40px;
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 17px;
             }
 
             .featured-recipes {
                 flex-direction: column;
                 align-items: center;
             }
+
+            .cta h2 {
+                font-size: 28px;
+            }
+
+            .cta p {
+                font-size: 18px;
+            }
+
+            .cta button {
+                padding: 12px 30px;
+                font-size: 18px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
         }
+
+        @media (max-width: 480px) {
+            .site-title {
+                font-size: 28px;
+            }
+
+            .header img{
+                height: 55px;
+            }
+
+            .site-title{
+                font-size: 22px;
+            }
+
+            .nav-link a{
+                font-size: 15px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+            
+            .hero p {
+                font-size: 15px;
+            }
+
+            .recipe-card {
+                width: 90%;
+            }
+
+            .cta h2 {
+                font-size: 24px;
+            }
+
+            .cta p { 
+                font-size: 16px;
+            }
+
+            .cta button { 
+                padding: 10px 25px; font-size: 16px; 
+            }
+            
+            .social-icons img { 
+                width: 24px; height: 24px; 
+            }
+}
+
 
     </style>
 </head>
