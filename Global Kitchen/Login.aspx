@@ -4,62 +4,67 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Global Kitchen - Login</title>
+<<<<<<< Updated upstream
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+=======
+>>>>>>> Stashed changes
     <style>
-        body, html {
+        html, body, form {
             margin: 0;
             padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
+            width: 100%;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             background: #f5f5f5;
+            font-family: Arial, sans-serif;
         }
 
         .login-wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 100%;
+            width: 90%;
             max-width: 400px;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
         .logo {
-            width: 500px;
-            max-width: 70%;
+            width: 60%;
+            max-width: 300px;
             margin-bottom: 20px;
         }
 
         .login-container {
-            background: white;
-            padding: 2rem 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             width: 100%;
+            background: white;
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             text-align: center;
         }
 
         .login-container input {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 6px;
             font-size: 16px;
+            box-sizing: border-box;
         }
 
         .login-container button {
             width: 100%;
-            padding: 15px 0;
+            padding: 16px 0;
             font-size: 18px;
             color: white;
             background: linear-gradient(135deg, #ff7e5f, #feb47b);
             border: none;
             border-radius: 30px;
             cursor: pointer;
-            transition: background 0.2s, transform 0.2s;
+            transition: 0.2s;
         }
 
         .login-container button:hover {
@@ -67,9 +72,9 @@
         }
 
         .login-container p {
-            margin-top: 12px;
-            font-size: 14px;
+            font-size: 15px;
             color: #555;
+            margin-top: 12px;
         }
 
         .login-container a {
@@ -96,6 +101,59 @@
             .logo {
                 width: 160px;
                 margin-bottom: 15px;
+=======
+        @media (max-width: 768px) {
+            .login-wrapper {
+                width: 95%;
+                max-width: none;
+            }
+
+            .logo {
+                width: 80vw;
+                max-width: none;
+            }
+
+            .login-container {
+                padding: 2.5rem 2rem;
+            }
+
+            .login-container input {
+                font-size: 20px;
+                padding: 18px;
+            }
+
+            .login-container button {
+                font-size: 22px;
+                padding: 20px 0;
+            }
+
+            .login-container p {
+                font-size: 18px;
+            }
+
+        @media (max-width: 480px) {
+            .login-wrapper{
+                width: 95%;
+                max-width: none;
+            }
+
+            .logo {
+                width: 90vw;
+            }
+
+            .login-container input {
+                padding: 20px;
+                font-size: 22px;
+            }
+
+            .login-container button {
+                padding: 22px 0;
+                font-size: 24px;
+            }
+
+            .login-container p {
+                font-size: 20px;
+>>>>>>> Stashed changes
             }
         }
     </style>
@@ -104,7 +162,6 @@
     <form id="form1" runat="server">
         <div class="login-wrapper">
             <img src="Image/logo.png" alt="Logo" class="logo" />
-
             <div class="login-container">
                 <input type="text" placeholder="User Name" required/>
                 <input type="password" placeholder="Password" required/>
@@ -112,7 +169,6 @@
                 <p>Don't Have Account? <a href="Register.aspx">Register Here</a></p>
                 <p>Continue Browsing <a href="Index.aspx">Home Page Here</a></p>
             </div>
-
         </div>
     </form>
 </body>
