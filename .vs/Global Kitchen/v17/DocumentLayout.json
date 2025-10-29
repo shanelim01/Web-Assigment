@@ -3,8 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Alex Yap\\source\\repos\\shanelim01\\Web-Assigment\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A3992C28-9B0D-4DE8-A64D-FB09097BD3B9}|Global Kitchen\\Global Kitchen.csproj|c:\\users\\alex yap\\source\\repos\\shanelim01\\web-assigment\\global kitchen\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{A3992C28-9B0D-4DE8-A64D-FB09097BD3B9}|Global Kitchen\\Global Kitchen.csproj|solutionrelative:global kitchen\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+      "AbsoluteMoniker": "D:0:0:{A3992C28-9B0D-4DE8-A64D-FB09097BD3B9}|Global Kitchen\\Global Kitchen.csproj|c:\\users\\alex yap\\source\\repos\\shanelim01\\web-assigment\\global kitchen\\recipes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{A3992C28-9B0D-4DE8-A64D-FB09097BD3B9}|Global Kitchen\\Global Kitchen.csproj|solutionrelative:global kitchen\\recipes.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3992C28-9B0D-4DE8-A64D-FB09097BD3B9}|Global Kitchen\\Global Kitchen.csproj|c:\\users\\alex yap\\source\\repos\\shanelim01\\web-assigment\\global kitchen\\recipetemplate.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{A3992C28-9B0D-4DE8-A64D-FB09097BD3B9}|Global Kitchen\\Global Kitchen.csproj|solutionrelative:global kitchen\\recipetemplate.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3992C28-9B0D-4DE8-A64D-FB09097BD3B9}|Global Kitchen\\Global Kitchen.csproj|c:\\users\\alex yap\\source\\repos\\shanelim01\\web-assigment\\global kitchen\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{A3992C28-9B0D-4DE8-A64D-FB09097BD3B9}|Global Kitchen\\Global Kitchen.csproj|solutionrelative:global kitchen\\index.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3992C28-9B0D-4DE8-A64D-FB09097BD3B9}|Global Kitchen\\Global Kitchen.csproj|c:\\users\\alex yap\\source\\repos\\shanelim01\\web-assigment\\global kitchen\\usermodifypage.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{A3992C28-9B0D-4DE8-A64D-FB09097BD3B9}|Global Kitchen\\Global Kitchen.csproj|solutionrelative:global kitchen\\usermodifypage.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3992C28-9B0D-4DE8-A64D-FB09097BD3B9}|Global Kitchen\\Global Kitchen.csproj|c:\\users\\alex yap\\source\\repos\\shanelim01\\web-assigment\\global kitchen\\admin.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{A3992C28-9B0D-4DE8-A64D-FB09097BD3B9}|Global Kitchen\\Global Kitchen.csproj|solutionrelative:global kitchen\\admin.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3992C28-9B0D-4DE8-A64D-FB09097BD3B9}|Global Kitchen\\Global Kitchen.csproj|c:\\users\\alex yap\\source\\repos\\shanelim01\\web-assigment\\global kitchen\\register.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{A3992C28-9B0D-4DE8-A64D-FB09097BD3B9}|Global Kitchen\\Global Kitchen.csproj|solutionrelative:global kitchen\\register.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A3992C28-9B0D-4DE8-A64D-FB09097BD3B9}|Global Kitchen\\Global Kitchen.csproj|c:\\users\\alex yap\\source\\repos\\shanelim01\\web-assigment\\global kitchen\\firstpage.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{A3992C28-9B0D-4DE8-A64D-FB09097BD3B9}|Global Kitchen\\Global Kitchen.csproj|solutionrelative:global kitchen\\firstpage.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +38,97 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Login.aspx",
-              "DocumentMoniker": "C:\\Users\\Alex Yap\\source\\repos\\shanelim01\\Web-Assigment\\Global Kitchen\\Login.aspx",
-              "RelativeDocumentMoniker": "Global Kitchen\\Login.aspx",
-              "ToolTip": "C:\\Users\\Alex Yap\\source\\repos\\shanelim01\\Web-Assigment\\Global Kitchen\\Login.aspx*",
-              "RelativeToolTip": "Global Kitchen\\Login.aspx*",
+              "DocumentIndex": 5,
+              "Title": "Register.aspx",
+              "DocumentMoniker": "C:\\Users\\Alex Yap\\source\\repos\\shanelim01\\Web-Assigment\\Global Kitchen\\Register.aspx",
+              "RelativeDocumentMoniker": "Global Kitchen\\Register.aspx",
+              "ToolTip": "C:\\Users\\Alex Yap\\source\\repos\\shanelim01\\Web-Assigment\\Global Kitchen\\Register.aspx",
+              "RelativeToolTip": "Global Kitchen\\Register.aspx",
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2025-10-29T02:20:32.793Z",
+              "WhenOpened": "2025-10-29T02:23:06.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Recipes.aspx",
+              "DocumentMoniker": "C:\\Users\\Alex Yap\\source\\repos\\shanelim01\\Web-Assigment\\Global Kitchen\\Recipes.aspx",
+              "RelativeDocumentMoniker": "Global Kitchen\\Recipes.aspx",
+              "ToolTip": "C:\\Users\\Alex Yap\\source\\repos\\shanelim01\\Web-Assigment\\Global Kitchen\\Recipes.aspx",
+              "RelativeToolTip": "Global Kitchen\\Recipes.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-10-29T02:23:02.293Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserModifyPage.aspx",
+              "DocumentMoniker": "C:\\Users\\Alex Yap\\source\\repos\\shanelim01\\Web-Assigment\\Global Kitchen\\UserModifyPage.aspx",
+              "RelativeDocumentMoniker": "Global Kitchen\\UserModifyPage.aspx",
+              "ToolTip": "C:\\Users\\Alex Yap\\source\\repos\\shanelim01\\Web-Assigment\\Global Kitchen\\UserModifyPage.aspx",
+              "RelativeToolTip": "Global Kitchen\\UserModifyPage.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-10-29T02:23:07.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RecipeTemplate.aspx",
+              "DocumentMoniker": "C:\\Users\\Alex Yap\\source\\repos\\shanelim01\\Web-Assigment\\Global Kitchen\\RecipeTemplate.aspx",
+              "RelativeDocumentMoniker": "Global Kitchen\\RecipeTemplate.aspx",
+              "ToolTip": "C:\\Users\\Alex Yap\\source\\repos\\shanelim01\\Web-Assigment\\Global Kitchen\\RecipeTemplate.aspx",
+              "RelativeToolTip": "Global Kitchen\\RecipeTemplate.aspx",
+              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-10-29T02:23:04.467Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.aspx",
+              "DocumentMoniker": "C:\\Users\\Alex Yap\\source\\repos\\shanelim01\\Web-Assigment\\Global Kitchen\\Index.aspx",
+              "RelativeDocumentMoniker": "Global Kitchen\\Index.aspx",
+              "ToolTip": "C:\\Users\\Alex Yap\\source\\repos\\shanelim01\\Web-Assigment\\Global Kitchen\\Index.aspx",
+              "RelativeToolTip": "Global Kitchen\\Index.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-10-29T02:22:46.439Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FirstPage.aspx",
+              "DocumentMoniker": "C:\\Users\\Alex Yap\\source\\repos\\shanelim01\\Web-Assigment\\Global Kitchen\\FirstPage.aspx",
+              "RelativeDocumentMoniker": "Global Kitchen\\FirstPage.aspx",
+              "ToolTip": "C:\\Users\\Alex Yap\\source\\repos\\shanelim01\\Web-Assigment\\Global Kitchen\\FirstPage.aspx",
+              "RelativeToolTip": "Global Kitchen\\FirstPage.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-10-29T02:22:44.159Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Admin.aspx",
+              "DocumentMoniker": "C:\\Users\\Alex Yap\\source\\repos\\shanelim01\\Web-Assigment\\Global Kitchen\\Admin.aspx",
+              "RelativeDocumentMoniker": "Global Kitchen\\Admin.aspx",
+              "ToolTip": "C:\\Users\\Alex Yap\\source\\repos\\shanelim01\\Web-Assigment\\Global Kitchen\\Admin.aspx",
+              "RelativeToolTip": "Global Kitchen\\Admin.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-10-29T02:22:39.088Z",
               "EditorCaption": ""
             }
           ]
