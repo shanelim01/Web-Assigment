@@ -21,52 +21,56 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
+            padding: 10px 30px;
             background: rgba(255,255,255,0.9);
-            position: fixed;
+            position: sticky;
+            width: 100%;
             top: 0;
             left: 0;
-            width: 100%;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             z-index: 10;
             flex-wrap: wrap;
+            box-sizing: border-box;
         }
 
         .header img {
-            height: 90px;
+            height: 140px;
             width: auto;
+            display: block;
+            margin: 0 auto;
         }
 
         .title-area {
             text-align: center;
             flex: 1;
-            min-width: 250px;
-        }
-
-        .site-title {
-            font-size: 36px;
-            font-weight: 700;
-            margin: 0;
-            color: #e67300;
+            min-width: 200px;
         }
 
         .subscript-text {
             font-size: 16px;
-            color: #555;
-            margin-top: 5px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .site-title{
+            font-size: 36px;
+            font-weight: bold;
+            margin: 0;
         }
 
         .nav-links {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
+            justify-content: center;
+            align-items: center;
             gap: 25px;
+            flex-wrap: nowrap;
         }
 
         .nav-links a {
+            text-decoration: none;
             color: #333;
             font-weight: 500;
-            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
@@ -218,15 +222,136 @@
         }
 
         /* RESPONSIVE DESIGN */
+         @media (max-width: 1024px) {
+             .hero h1 { 
+                 font-size: 48px; 
+             }
+
+             .hero p { 
+                 font-size: 18px;
+             }
+
+             。header img{
+                 height: 120px;
+             }
+
+             .site-title{
+                 font-size: 30px;
+             }
+
+             .nav-links{
+                 gap: 20px;
+             }
+         }
+
         @media (max-width: 768px) {
-            .search-bar input {
-                width: 80%;
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+                height: auto;
+                padding: 8px 0;
+            }
+
+            .header img {
+                height: 120px;
+                margin-bottom: 4px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-top: 5px;
+            }
+
+            .nav-links a {
+                font-size: 15px;
+            }
+
+            .site-title {
+                font-size: 20px;
+                margin: 0;
+            }
+
+            .subscript-text {
+                font-size: 12px;
+                margin-top: 2px;
+            }
+
+            .title-area{
+                margin-bottom: 5px;
+            }
+
+            .hero {
+                padding: 130px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .featured-recipes {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+
+            .top-section{
+                margin-top: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .site-title {
+                font-size: 28px;
+            }
+
+            .header img {
+                height: 120px;
+            }
+
+            .site-title {
+                font-size: 22px;
+            }
+
+            .nav-link a {
+                font-size: 15px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 15px;
             }
 
             .recipe-card {
                 width: 90%;
             }
+
+            .social-icons img {
+                width: 24px;
+                height: 24px;
+            }
+
+            .top-section{
+                margin-top: 80px;
+            }
         }
+
     </style>
 </head>
 
