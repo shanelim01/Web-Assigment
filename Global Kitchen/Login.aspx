@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Global Kitchen - Login</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
         body, html {
             margin: 0;
@@ -82,18 +82,20 @@
             text-decoration: underline;
         }
 
+        /* Mobile adjustments */
         @media (max-width: 480px) {
             .login-container {
                 padding: 1.5rem 1rem;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             }
 
-            .login-container button {
-                font-size: 16px;
-                padding: 12px 0;
+            .login-container h1 {
+                font-size: 22px;
             }
 
             .logo {
-                width: 150px;
+                width: 160px;
+                margin-bottom: 15px;
             }
         }
     </style>

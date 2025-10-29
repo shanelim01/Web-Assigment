@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Global Kitchen - Register Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
         body, html{
             margin: 0;
@@ -277,6 +278,13 @@
             background: rgba(255,255,255,0.8);
             color: #333;
             transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .tagline h1 { font-size: 22px; }
+            .tagline h2 { font-size: 15px; }
+            .feature-cards { flex-direction: column; align-items: center; }
+            .card { width: 90%; }
         }
     </style>
 </head>
