@@ -436,9 +436,11 @@
             </div>
 
             <nav class="nav-links">
-                <a href="UserPage.aspx">Profile</a>
-                <a href="login.aspx">Login</a>
-                <a href="Admin.aspx">Admin</a>
+                <asp:HyperLink ID="lnkProfile" runat="server" NavigateUrl="UserPage.aspx">Profile</asp:HyperLink>
+                <asp:HyperLink ID="lnkLogin" runat="server" NavigateUrl="Login.aspx">Login</asp:HyperLink>
+                <asp:HyperLink ID="lnkAdmin" runat="server" NavigateUrl="Admin.aspx">Admin</asp:HyperLink>
+                <asp:Label ID="lblWelcome" runat="server" Text="" style="margin-left: 15px;"></asp:Label>
+                <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" />
             </nav>
         </header>
 
