@@ -33,7 +33,7 @@ namespace Global_Kitchen
 
             using (SqlConnection conn = new SqlConnection(connStr))
             {
-                string query = "SELECT Username, Gender, DOB, Country, Email, ProfileImg FROM [User] WHERE Username=@Username";
+                string query = "SELECT Username, Gender, DOB, Country, Email, ProfileImg FROM UserTable WHERE Username=@Username";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -71,6 +71,12 @@ namespace Global_Kitchen
                 return;
             }
 
+            if (Session["Username"] == null)
+            {
+                lblMessage.Text = "User session expired. Please log in again.";
+                return;
+            }
+
             string username = Session["Username"].ToString();
             string recipeName = txtRecipeName.Text.Trim();
             string recipeDesc = txtRecipeDesc.Text.Trim();
@@ -95,7 +101,7 @@ namespace Global_Kitchen
             {
                 conn.Open();
 
-                string getUserIdQuery = "SELECT UserID FROM [User] WHERE Username=@Username";
+                string getUserIdQuery = "SELECT UserID FROM UserTable WHERE Username = @Username";
                 SqlCommand cmdUser = new SqlCommand(getUserIdQuery, conn);
                 cmdUser.Parameters.AddWithValue("@Username", username);
                 object userIdObj = cmdUser.ExecuteScalar();
@@ -108,22 +114,33 @@ namespace Global_Kitchen
 
                 int userId = Convert.ToInt32(userIdObj);
 
-                string insertQuery = @"INSERT INTO Recipe (UserID, RecipeName, Description, Image) 
-                                       VALUES (@UserID, @RecipeName, @Description, @Image)";
+                string getMaxRecipeIdQuery = "SELECT ISNULL(MAX(RecipeID), 0) FROM Recipe";
+                SqlCommand cmdMax = new SqlCommand(getMaxRecipeIdQuery, conn);
+                int maxRecipeId = Convert.ToInt32(cmdMax.ExecuteScalar());
+
+                int newRecipeId = maxRecipeId + 1;
+
+                string insertQuery = @"INSERT INTO Recipe (RecipeID, UserID, RecipeName, Description, Image)
+                               VALUES (@RecipeID, @UserID, @RecipeName, @Description, @Image)";
                 SqlCommand cmd = new SqlCommand(insertQuery, conn);
+                cmd.Parameters.AddWithValue("@RecipeID", newRecipeId);
                 cmd.Parameters.AddWithValue("@UserID", userId);
                 cmd.Parameters.AddWithValue("@RecipeName", recipeName);
                 cmd.Parameters.AddWithValue("@Description", recipeDesc);
                 cmd.Parameters.AddWithValue("@Image", uniqueFileName);
 
                 cmd.ExecuteNonQuery();
+
                 lblMessage.ForeColor = System.Drawing.Color.Green;
                 lblMessage.Text = "Recipe uploaded successfully!";
 
                 txtRecipeName.Text = "";
                 txtRecipeDesc.Text = "";
+                Response.Redirect("UserPage.aspx");
+
             }
         }
+
 
         private void BindUserRecipes()
         {
@@ -136,7 +153,7 @@ namespace Global_Kitchen
             {
                 conn.Open();
 
-                string getUserIdQuery = "SELECT UserID FROM [User] WHERE Username = @Username";
+                string getUserIdQuery = "SELECT UserID FROM UserTable WHERE Username = @Username";
                 using (SqlCommand cmd = new SqlCommand(getUserIdQuery, conn))
                 {
                     cmd.Parameters.AddWithValue("@Username", username);
