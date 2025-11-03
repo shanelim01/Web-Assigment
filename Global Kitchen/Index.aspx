@@ -775,7 +775,7 @@ git reset --hard<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.
                     <iframe 
                         width="100%" 
                         height="400" 
-                        src="https://www.youtube.com/embed/y3X7DKYkSxs" 
+                        src="https://www.youtube.com/embed/8yiuDAMbBNk" 
                         title="Global Kitchen Cooking Tutorial" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
