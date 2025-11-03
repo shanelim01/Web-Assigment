@@ -123,6 +123,16 @@
             transform: translateY(-2px);
         }
 
+        .navbar .nav-links a.active {
+            color: var(--white);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            box-shadow: var(--shadow);
+        }
+
+        .navbar .nav-links a.active:hover {
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
         .profile-section { margin-top: 120px; }
         .profile-background { background: linear-gradient(135deg, #f5f5dc, #f0e6d2, #e6d8b8); border-radius: 16px; max-width: 900px; margin: 0 auto; box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 40px; }
         .profile-container { display: flex; align-items: center; }
@@ -190,7 +200,9 @@
              <a href="/">Home</a>
              <a href="/Home/Recipes">Recipes</a>
              <a href="/Home/About">About</a>
+             <a href="/Home/UserPage" class="active">Profile</a>
              <a href="/Home/Login">Login</a>
+             <a href="/Home/Register">Register</a>
              <a href="/Home/Admin">Admin</a>
          </nav>
      </header>

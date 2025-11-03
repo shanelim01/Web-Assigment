@@ -130,6 +130,16 @@ s<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inh
             transform: translateY(-2px);
         }
 
+        .navbar .nav-links a.active {
+            color: var(--white);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            box-shadow: var(--shadow);
+        }
+
+        .navbar .nav-links a.active:hover {
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
         .register-wrapper {
             min-height: 100vh;
             padding: 20px;
@@ -617,7 +627,10 @@ s<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inh
                 <a href="/">Home</a>
                 <a href="/Home/Recipes">Recipes</a>
                 <a href="/Home/About">About</a>
+                <a href="/Home/UserPage">Profile</a>
                 <a href="/Home/Login">Login</a>
+                <a href="/Home/Register" class="active">Register</a>
+                <a href="/Home/Admin">Admin</a>
             </nav>
         </header>
 
