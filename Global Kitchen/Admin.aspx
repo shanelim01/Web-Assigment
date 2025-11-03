@@ -1,20 +1,131 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="Global_Kitchen.Admin" %>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <style>
+        /* === CSS VARIABLES === */
+        :root {
+            --primary-color: #ff6b35;
+            --secondary-color: #f7931e;
+            --accent-color: #ffb347;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         body, html {
             margin: 0;
             height: 100vh;
             background: linear-gradient(135deg, #f5f5dc, #f0e6d2, #e6d8b8);
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* === STANDARD NAVBAR === */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+            box-sizing: border-box;
+        }
+
+        .navbar:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .navbar .header {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .header img {
+            height: 80px;
+            width: auto;
+            display: block;
+        }
+
+        .navbar .title-area {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .navbar .subscript-text {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .navbar .site-title {
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            font-weight: 800;
+            margin: 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            font-size: 0.95rem;
+        }
+
+        .navbar .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .navbar .nav-links a:hover::before {
+            left: 100%;
+        }
+
+        .navbar .nav-links a:hover {
+            color: var(--primary-color);
+            background: rgba(255, 107, 53, 0.1);
+            transform: translateY(-2px);
         }
 
         /* === Admin Overview === */
         .admin-section {
-            margin: 50px auto;
+            margin: 120px auto 50px;
             max-width: 1200px;
             background: rgba(255, 255, 255, 0.85);
             border-radius: 16px;
@@ -305,13 +416,34 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <!-- Standard Navbar -->
+        <header class="navbar">
+            <div class="header">
+                <img src="/Image/Logo.png" alt="Global Kitchen Logo" />
+            </div>
+
+            <div class="title-area">
+                <h1 class="site-title">Global Kitchen</h1>
+                <p class="subscript-text">Cooking lessons across cultures</p>
+            </div>
+
+            <nav class="nav-links">
+                <a href="/">Home</a>
+                <a href="/Home/Recipes">Recipes</a>
+                <a href="/Home/About">About</a>
+                <a href="/Home/UserPage">Profile</a>
+                <a href="/Home/Login">Login</a>
+                <a href="/Home/Admin">Admin</a>
+            </nav>
+        </header>
+
         <section class="admin-section">
             <div class="admin-header">
                 <h1>Welcome, Admin!</h1>
                 <h1> Johan Welson </h1>
                 <p>Here you can review user submissions, view statistics, and post advertisements.</p>
                 <div class="admin-pic">
-                    <img src="Image/UserImage.jpg" alt="Admin Profile Picture"/>
+                    <img src="/Image/UserImage.jpg" alt="Admin Profile Picture"/>
                 </div>
             </div>
 
