@@ -567,7 +567,7 @@
             <main class="main-content">
                 <section class="recipe-section">
                     <div class="section-header">
-                        <h2 class="section-title">🔥 Trending Recipes</h2>
+                        <h2 class="section-title">Trending Recipes</h2>
                         <p class="section-subtitle">What's popular right now</p>
                     </div>
                     <div class="recipe-grid">
@@ -577,8 +577,8 @@
                                 <h4 class="recipe-title">Classic Sushi Rolls</h4>
                                 <p class="recipe-description">Perfectly rolled with fresh fish and rice. Learn the art of Japanese sushi making.</p>
                                 <div class="recipe-meta">
-                                    <div class="recipe-rating">⭐ 4.8</div>
-                                    <div class="recipe-time">⏱️ 45 min</div>
+                                    <div class="recipe-rating">Rating: 4.8</div>
+                                    <div class="recipe-time">Time: 45 min</div>
                                 </div>
                             </div>
                         </div>
@@ -589,8 +589,8 @@
                                 <h4 class="recipe-title">Spaghetti Carbonara</h4>
                                 <p class="recipe-description">Creamy sauce with crispy pancetta. Authentic Italian comfort food.</p>
                                 <div class="recipe-meta">
-                                    <div class="recipe-rating">⭐ 4.9</div>
-                                    <div class="recipe-time">⏱️ 30 min</div>
+                                    <div class="recipe-rating">Rating: 4.9</div>
+                                    <div class="recipe-time">Time: 30 min</div>
                                 </div>
                             </div>
                         </div>
@@ -601,8 +601,8 @@
                                 <h4 class="recipe-title">French Croissants</h4>
                                 <p class="recipe-description">Buttery, flaky layers that melt in your mouth. Master the art of French baking.</p>
                                 <div class="recipe-meta">
-                                    <div class="recipe-rating">⭐ 4.7</div>
-                                    <div class="recipe-time">⏱️ 3 hours</div>
+                                    <div class="recipe-rating">Rating: 4.7</div>
+                                    <div class="recipe-time">Time: 3 hours</div>
                                 </div>
                             </div>
                         </div>
@@ -610,7 +610,7 @@
                 </section>
                 <section class="recipe-section">
                     <div class="section-header">
-                        <h2 class="section-title">🍳 Today's Recommendation</h2>
+                        <h2 class="section-title">Today's Recommendation</h2>
                         <p class="section-subtitle">Perfect for today's cooking mood</p>
                     </div>
                     <div class="recipe-grid">
@@ -620,8 +620,8 @@
                                 <h4 class="recipe-title">Mediterranean Quinoa Bowl</h4>
                                 <p class="recipe-description">Fresh, healthy, and packed with Mediterranean flavors. Perfect for a nutritious meal.</p>
                                 <div class="recipe-meta">
-                                    <div class="recipe-rating">⭐ 4.9</div>
-                                    <div class="recipe-time">⏱️ 20 min</div>
+                                    <div class="recipe-rating">Rating: 4.9</div>
+                                    <div class="recipe-time">Time: 20 min</div>
                                 </div>
                             </div>
                         </div>
