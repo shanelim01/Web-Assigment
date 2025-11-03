@@ -1,25 +1,129 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserPage.aspx.cs" Inherits="Global_Kitchen.UserPage" %>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head>
     <title>Global Kitchen - User Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+        /* === CSS VARIABLES === */
+        :root {
+            --primary-color: #ff6b35;
+            --secondary-color: #f7931e;
+            --accent-color: #ffb347;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         body, html {
             margin: 0;
             height: 100vh;
             background: linear-gradient(135deg, #f5f5dc, #f0e6d2, #e6d8b8);
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            overflow-x: hidden;
         }
-        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; background: rgba(255,255,255,0.7); top: 0; left: 0; width: 100%; box-sizing: border-box; }
-        .logo-area { display: flex; align-items: center; }
-        .logo { height: 40px; margin-right: 10px; }
-        .title-area{ text-align: center; flex: 1; }
-        .site-title { font-size: 50px; font-weight: bold; color: #333; margin: 0; flex: 1; text-align: center; }
-        .subscript-text{ font-size: 20px; color: #555; margin: 0; margin-top: 3px; }
-        .nav-links a { margin-left: 20px; text-decoration: none; color: #333; font-weight: 500; }
-        .nav-links a:hover { color: #e67300; }
-        .profile-section { margin-top: 100px; }
+
+        /* === STANDARD NAVBAR === */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
+            box-sizing: border-box;
+        }
+
+        .navbar:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .navbar .header {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .header img {
+            height: 80px;
+            width: auto;
+            display: block;
+        }
+
+        .navbar .title-area {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .navbar .subscript-text {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .navbar .site-title {
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            font-weight: 800;
+            margin: 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            font-size: 0.95rem;
+        }
+
+        .navbar .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .navbar .nav-links a:hover::before {
+            left: 100%;
+        }
+
+        .navbar .nav-links a:hover {
+            color: var(--primary-color);
+            background: rgba(255, 107, 53, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .profile-section { margin-top: 120px; }
         .profile-background { background: linear-gradient(135deg, #f5f5dc, #f0e6d2, #e6d8b8); border-radius: 16px; max-width: 900px; margin: 0 auto; box-shadow: 0 4px 20px rgba(0,0,0,0.08); padding: 40px; }
         .profile-container { display: flex; align-items: center; }
         .profile-pic { width: 160px; height: 160px; border-radius: 12px; background: #ddd; overflow: hidden; margin-right: 40px; flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
@@ -70,52 +174,51 @@
         </style>
 </head>
 <body>
-    <form id="form1" runat="server" enctype="multipart/form-data">
-        <header class="navbar">
-            <div class="header">
-                <img src="Image/Logo.png" alt="Global Kitchen Logo" style="height: 168px; width: 201px" />
-            </div>
+     <form id="form1">
+     <!-- Standard Navbar -->
+     <header class="navbar">
+         <div class="header">
+             <img src="/Image/Logo.png" alt="Global Kitchen Logo" />
+         </div>
 
-            <div class="title-area">
-                <h1 class="site-title"> Global Kitchen </h1>
-                <p class="subscript-text"> Cooking lessons across cultures </p>
-            </div>
+         <div class="title-area">
+             <h1 class="site-title">Global Kitchen</h1>
+             <p class="subscript-text">Cooking lessons across cultures</p>
+         </div>
 
-            <nav class="nav-links">
-                <a href="Index.aspx"> Home </a>
-                <a href="Recipes.aspx"> Recipes </a>
-            </nav>
-        </header>
+         <nav class="nav-links">
+             <a href="/">Home</a>
+             <a href="/Home/Recipes">Recipes</a>
+             <a href="/Home/About">About</a>
+             <a href="/Home/Login">Login</a>
+             <a href="/Home/Admin">Admin</a>
+         </nav>
+     </header>
 
         <section class="profile-section">
             <div class="profile-background">
                 <div class="profile-container">
                     <div class="profile-pic">
-    <asp:Image ID="imgProfile" runat="server" CssClass="profile-pic-img" />
-</div>
+                        <img src="/Image/UserImage.jpg" alt="User Profile Picture" />
+                    </div>
 
-<div class="profile-info">
-    <div class="name-edit">
-        <h2 class="profile-name">
-            <asp:Label ID="lblUsername" runat="server" Text="Username"></asp:Label>
-        </h2>
-        <span class="gender-icon">
-            <asp:Label ID="lblGender" runat="server"></asp:Label>
-        </span>
-        <a class="edit-btn" title="Edit Profile" href="UserModifyPage.aspx"> ✏️ </a>
-    </div>
+                    <div class="profile-info">
+                        <div class="name-edit">
+                            <h2 class="profile-name" style="margin: 0;"> Johny </h2>
+                            <span class="gender-icon" title="Male"><strong> ♂ </strong></span>
+                            <a class="edit-btn" title="Edit Profile" href="/Home/UserModifyPage"> ✏️ </a>
+                        </div>
 
-    <div class="user-details">
-        <p><strong>Birthday: </strong><asp:Label ID="lblDOB" runat="server"></asp:Label></p>
-        <p><strong>Country: </strong><asp:Label ID="lblCountry" runat="server"></asp:Label></p>
-        <p><strong>Email: </strong><asp:Label ID="lblEmail" runat="server"></asp:Label></p>
-    </div>
+                        <div class="user-details">
+                            <p><strong> Birthday: </strong> 3 April 2005</p>
+                            <p><strong> Country: </strong> Malaysia </p>
+                        </div>
 
-    <p class="profile-bio">
-        <asp:Label ID="lblBio" runat="server"></asp:Label>
-    </p>
-</div>
-
+                        <p class="profile-bio">
+                            A passionate home chef who loves exploring new cuisines and sharing recipes with the world.
+                            Cooking is not just a hobby - it's my language of love.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -123,7 +226,7 @@
         <section class="user-stats">
             <div class="stats-container">
                 <div class="stat-box">
-                    <span class="stat-icon"> ❤️ </span>
+                    <span class="stat-icon"> ♥ </span>
                     <div class="stat-info">
                         <h3 class="stat-number"> 128 </h3>
                         <p class="stat-label"> Total Liked </p>
@@ -131,7 +234,7 @@
                 </div>
 
                 <div class="stat-box">
-                    <span class="stat-icon"> 🍳 </span>
+                    <span class="stat-icon"> ♨ </span>
                     <div>
                         <h3 class="stat-number"> 12 </h3>
                         <p class="stat-label"> Recipes Published </p>
@@ -142,30 +245,22 @@
 
         <section class="user-recipes">
             <div class="published-recipes">
-    <h2>Your Recipes</h2>
-    <asp:Repeater ID="rptRecipes" runat="server" OnItemCommand="rptRecipes_ItemCommand">
-        <ItemTemplate>
-            <div class="recipe-card">
-                <asp:Image 
-                    ID="imgRecipe" 
-                    runat="server" 
-                    ImageUrl='<%# "~/Image/RecipeImages/" + Eval("Image") %>' 
-                    CssClass="recipe-image" />
-                <div class="recipe-info">
-                    <h3><%# Eval("RecipeName") %></h3>
-                    <p><%# Eval("Description") %></p>
-                    <asp:Button 
-                        ID="btnDelete" 
-                        runat="server" 
-                        Text="Delete" 
-                        CommandName="DeleteRecipe" 
-                        CommandArgument='<%# Eval("RecipeID") %>' 
-                        CssClass="delete-btn" />
+                <h2>Your Recipes</h2>
+                
+                <div class="recipe-card">
+                    <div class="recipe-info">
+                        <h3>Creamy Carbonara</h3>
+                        <p>♥ 256 Likes</p>
+                    </div>
+                </div>
+                
+                <div class="recipe-card">
+                    <div class="recipe-info">
+                        <h3>Teriyaki Chicken</h3>
+                        <p>♥ 300 Likes</p>
+                    </div>
                 </div>
             </div>
-        </ItemTemplate>
-    </asp:Repeater>
-</div>
 
 
 

@@ -1,4 +1,4 @@
-﻿git reset --hard<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Global_Kitchen.index" %>
+git reset --hard<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Global_Kitchen.index" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -6,103 +6,212 @@
     <title>Global Kitchen</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            background: linear-gradient(135deg, #f5f5dc, #f0e6d2, #e6d8b8);
-            font-family: 'Segoe UI', Arial, sans-serif;
-            color: #333;
-            overflow-x: hidden;
+        /* === CSS VARIABLES === */
+        :root {
+            --primary-color: #ff6b35;
+            --secondary-color: #f7931e;
+            --accent-color: #ffb347;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* === NAVBAR === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            background: linear-gradient(135deg, #f5f5dc, #f0e6d2, #e6d8b8);
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* === STANDARD NAVBAR === */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 30px;
-            background: rgba(255,255,255,0.9);
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 10;
-            flex-wrap: wrap;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
             box-sizing: border-box;
         }
 
-        .header img {
-            height: 100px;
-            width: auto;
-            display: block;
-            margin: 0 auto;
+        .navbar:hover {
+            box-shadow: var(--shadow-hover);
         }
 
-        .title-area {
+        .navbar .header {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .header img {
+            height: 80px;
+            width: auto;
+            display: block;
+        }
+
+        .navbar .title-area {
             text-align: center;
             flex: 1;
             min-width: 200px;
         }
 
-        .subscript-text {
-            font-size: 16px;
-            color: #666;
+        .navbar .subscript-text {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: var(--text-light);
             margin-top: 4px;
         }
 
-        .site-title{
-            font-size: 36px;
-            font-weight: bold;
+        .navbar .site-title {
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            font-weight: 800;
             margin: 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .nav-links {
+        .navbar .nav-links {
             display: flex;
-            justify-content: center;
+            gap: 20px;
             align-items: center;
-            gap: 25px;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
         }
 
-        .nav-links a {
+        .navbar .nav-links a {
             text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s ease;
+            color: var(--text-dark);
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            font-size: 0.95rem;
         }
 
-        .nav-links a:hover {
-            color: #e67300;
+        .navbar .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .navbar .nav-links a:hover::before {
+            left: 100%;
+        }
+
+        .navbar .nav-links a:hover {
+            color: var(--primary-color);
+            background: rgba(255, 107, 53, 0.1);
+            transform: translateY(-2px);
         }
 
 
         /* === HERO SECTION === */
         .hero {
-            height: 90vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('Image/kitchen-bg.jpg') center/cover no-repeat;
-            margin-top: 100px;
-            padding: 0 20px;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(247, 147, 30, 0.1)),
+                        linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('Image/Background.png') center/cover no-repeat;
+            padding: 120px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 107, 53, 0.05) 50%, transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
          .hero h1 {
-            font-size: 60px;
-            font-weight: bold;
-            color: #222;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: var(--text-dark);
             margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: slideInDown 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
          }
 
          .hero p {
-            font-size: 20px;
-            color: #555;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            color: var(--text-light);
             max-width: 700px;
-            line-height: 1.6;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
          }
 
         /* === FEATURED SECTION === */
@@ -126,16 +235,42 @@
         }
 
         .recipe-card {
-            background: rgba(255,255,255,0.95);
-            border-radius: 16px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
             overflow: hidden;
-            width: 300px;
-            transition: transform 0.3s ease;
+            width: 100%;
+            max-width: 350px;
+            transition: var(--transition);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .recipe-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .recipe-card:hover::before {
+            opacity: 0.1;
         }
 
         .recipe-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .recipe-card-content {
+            position: relative;
+            z-index: 2;
         }
 
         .recipe-card img {
@@ -175,21 +310,100 @@
             text-align: center;
         }
 
-        .cta button {
-            background: linear-gradient(135deg, #ff7e5f, #feb47b);
-            color: white;
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
             border: none;
-            padding: 15px 40px;
-            border-radius: 30px;
-            font-size: 20px;
-            font-weight: bold;
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.3s ease;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: var(--shadow);
         }
 
-        .cta button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: var(--shadow-hover);
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
+        .cta-button:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        /* === VIDEO SECTION === */
+        .video-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .video-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 50px 40px;
+            box-shadow: var(--shadow);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .video-container h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .video-container p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-hover);
+            transition: var(--transition);
+        }
+
+        .video-wrapper:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-wrapper iframe {
+            border-radius: var(--border-radius);
         }
 
         /* === FOOTER === */
@@ -282,19 +496,50 @@
                 font-size: 18px;
             }
 
-            。header img{
-                height: 70px;
+            .navbar .header img {
+                height: 60px;
             }
 
-            .site-title{
-                font-size: 30px;
+            .navbar .site-title {
+                font-size: 1.6rem;
             }
 
-            .nav-links{
-                gap: 20px;
+            .navbar .nav-links {
+                gap: 15px;
             }
         }
 
+        /* === RESPONSIVE DESIGN === */
+        
+        /* Tablet Styles */
+        @media (max-width: 1024px) {
+            .navbar {
+                padding: 12px 20px;
+            }
+            
+            .nav-links {
+                gap: 20px;
+            }
+            
+            .nav-links a {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .hero {
+                padding: 100px 20px 60px;
+            }
+            
+            .featured-recipes {
+                gap: 20px;
+            }
+            
+            .recipe-card {
+                max-width: 300px;
+            }
+        }
+
+        /* Mobile Styles */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -303,32 +548,33 @@
                 padding: 8px 0;
             }
 
-            .header img {
-                height: 45px;
+            .navbar .header img {
+                height: 50px;
                 margin-bottom: 4px;
             }
 
-            .nav-links {
+            .navbar .nav-links {
                 flex-wrap: wrap;
                 gap: 10px;
                 margin-top: 5px;
             }
 
-            .nav-links a {
-                font-size: 15px;
+            .navbar .nav-links a {
+                font-size: 0.85rem;
+                padding: 8px 12px;
             }
 
-            .site-title {
-                font-size: 20px;
+            .navbar .site-title {
+                font-size: 1.4rem;
                 margin: 0;
             }
 
-            .subscript-text {
-                font-size: 12px;
+            .navbar .subscript-text {
+                font-size: 0.75rem;
                 margin-top: 2px;
             }
 
-            .title-area{
+            .navbar .title-area {
                 margin-bottom: 5px;
             }
 
@@ -336,14 +582,53 @@
                 padding: 130px;
             }
 
+            .navbar {
+                flex-direction: column;
+                padding: 15px 20px;
+                gap: 15px;
+            }
+            
+            .title-area {
+                order: 1;
+            }
+            
+            .nav-links {
+                order: 2;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links a {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+            
+            .hero {
+                padding: 140px 15px 60px;
+                min-height: 80vh;
+            }
+            
             .hero h1 {
-                font-size: 38px;
+                font-size: clamp(2rem, 8vw, 2.5rem);
+                margin-bottom: 15px;
             }
-
+            
             .hero p {
-                font-size: 17px;
+                font-size: clamp(1rem, 4vw, 1.1rem);
+                margin-bottom: 25px;
             }
-
+            
+            .featured-section {
+                margin: 60px auto;
+                padding: 0 15px;
+            }
+            
+            .featured-section h2 {
+                font-size: 1.8rem;
+                margin-bottom: 30px;
+            }
+            
             .featured-recipes {
                 flex-direction: column;
                 align-items: center;
@@ -374,20 +659,17 @@
         }
 
         @media (max-width: 480px) {
-            .site-title {
-                font-size: 28px;
+            .navbar .site-title {
+                font-size: 1.3rem;
             }
 
-            .header img{
-                height: 55px;
+            .navbar .header img {
+                height: 45px;
             }
 
-            .site-title{
-                font-size: 22px;
-            }
-
-            .nav-link a{
-                font-size: 15px;
+            .navbar .nav-links a {
+                font-size: 0.8rem;
+                padding: 6px 10px;
             }
 
             .hero h1 {
@@ -423,11 +705,11 @@
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <!-- Navbar -->
+    <form id="form1">
+        <!-- Standard Navbar -->
         <header class="navbar">
             <div class="header">
-                <img src="Image/Logo.png" alt="Global Kitchen Logo" style="height: 120px;" />
+                <img src="/Image/Logo.png" alt="Global Kitchen Logo" />
             </div>
 
             <div class="title-area">
@@ -436,19 +718,22 @@
             </div>
 
             <nav class="nav-links">
-                <asp:HyperLink ID="lnkProfile" runat="server" NavigateUrl="UserPage.aspx">Profile</asp:HyperLink>
-                <asp:HyperLink ID="lnkLogin" runat="server" NavigateUrl="Login.aspx">Login</asp:HyperLink>
-                <asp:HyperLink ID="lnkAdmin" runat="server" NavigateUrl="Admin.aspx">Admin</asp:HyperLink>
-                <asp:Label ID="lblWelcome" runat="server" Text="" style="margin-left: 15px;"></asp:Label>
-                <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" />
+                <a href="/">Home</a>
+                <a href="/Home/Recipes">Recipes</a>
+                <a href="/Home/About">About</a>
+                <a href="/Home/UserPage">Profile</a>
+                <a href="/Home/Login">Login</a>
+                <a href="/Home/Admin">Admin</a>
             </nav>
         </header>
 
         <!-- Hero Section -->
         <section class="hero">
-            <h1>Welcome to Global Kitchen</h1>
-            <p>Explore the art of cooking across cultures.  
-            Learn authentic recipes from passionate chefs worldwide — right from your own kitchen.</p>
+            <div class="hero-content">
+                <h1>Welcome to Global Kitchen</h1>
+                <p>Explore the art of cooking across cultures.  
+                Learn authentic recipes from passionate chefs worldwide right from your own kitchen.</p>
+            </div>
         </section>
 
         <!-- Featured Paid Recipes -->
@@ -456,21 +741,46 @@
             <h2>Featured Premium Lessons</h2>
             <div class="featured-recipes">
                 <div class="recipe-card">
-                    <img src="Image/ItalianPasta.jpg" alt="Italian Pasta" />
-                    <h3>Italian Pasta Secrets</h3>
-                    <p>Discover how to make fresh pasta from scratch, with sauces passed down through generations.</p>
+                    <div class="recipe-card-content">
+                        <img src="/Image/ItalianPasta.jpg" alt="Italian Pasta" />
+                        <h3>Italian Pasta Secrets</h3>
+                        <p>Discover how to make fresh pasta from scratch, with sauces passed down through generations.</p>
+                    </div>
                 </div>
 
                 <div class="recipe-card">
-                    <img src="Image/JapaneseSushi.jpg" alt="Japanese Sushi" />
-                    <h3>Mastering Sushi</h3>
-                    <p>Learn the precision, balance, and art behind traditional Japanese sushi techniques.</p>
+                    <div class="recipe-card-content">
+                        <img src="/Image/JapaneseSushi.jpg" alt="Japanese Sushi" />
+                        <h3>Mastering Sushi</h3>
+                        <p>Learn the precision, balance, and art behind traditional Japanese sushi techniques.</p>
+                    </div>
                 </div>
 
                 <div class="recipe-card">
-                    <img src="Image/FrenchPastry.jpg" alt="French Pastry" />
-                    <h3>French Pastry Magic</h3>
-                    <p>From croissants to éclairs — dive into the delicious world of classic French desserts.</p>
+                    <div class="recipe-card-content">
+                        <img src="/Image/FrenchPastry.jpg" alt="French Pastry" />
+                        <h3>French Pastry Magic</h3>
+                        <p>From croissants to éclairs — dive into the delicious world of classic French desserts.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Tutorial Section -->
+        <section class="video-section">
+            <div class="video-container">
+                <h2>Watch Our Featured Tutorial</h2>
+                <p>Learn the basics of international cooking with our step-by-step video guide</p>
+                <div class="video-wrapper">
+                    <iframe 
+                        width="100%" 
+                        height="400" 
+                        src="https://www.youtube.com/embed/y3X7DKYkSxs" 
+                        title="Global Kitchen Cooking Tutorial" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
                 </div>
             </div>
         </section>
@@ -479,7 +789,7 @@
         <section class="cta">
             <h2>Ready to Start Your Culinary Journey?</h2>
             <p> Join thousands of students who have transformed their cooking skills with our expert-led courses </p>
-            <button type="button" onclick="window.location.href='Recipes.aspx'">Get Started Free</button>
+            <button type="button" class="cta-button" onclick="window.location.href='/Home/Recipes'">Get Started Free</button>
         </section>
 
         <footer class="footer">
@@ -492,19 +802,19 @@
                 <div class="footer-column">
                     <h3> Support </h3>
                     <ul>
-                        <li><a href="UserPage.aspx">Profile</a></li>
-                        <li><a href="Login.aspx"> Login </a></li>
-                        <li><a href="Register.aspx"> Create Account </a></li>
+                        <li><a href="/Home/UserPage">Profile</a></li>
+                        <li><a href="/Home/Login"> Login </a></li>
+                        <li><a href="/Home/Register"> Create Account </a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
                     <h3>Connect</h3>
                     <div class="social-icons">
-                        <img src="Image/Facebook.png" alt="Facebook" />
-                        <img src="Image/Instagram.jpg" alt="Instagram" />
-                        <img src="Image/X.jpg" alt ="X" />
-                        <img src="Image/Youtube.png" alt="Youtube" />
+                        <img src="/Image/Facebook.png" alt="Facebook" />
+                        <img src="/Image/Instagram.jpg" alt="Instagram" />
+                        <img src="/Image/X.jpg" alt ="X" />
+                        <img src="/Image/Youtube.png" alt="Youtube" />
                     </div>
                 </div>
             </div>
@@ -513,6 +823,21 @@
                 <p>© 2025 Global Kitchen | Designed for Culinary Creators</p>
             </div>
         </footer>
+
+        <!-- Backend Integration Placeholders -->
+        <div id="dynamic-content" style="display: none;">
+            <!-- Placeholder for dynamic recipe data -->
+            <div id="featured-recipes-container"></div>
+            
+            <!-- Placeholder for user authentication status -->
+            <div id="user-auth-status"></div>
+            
+            <!-- Placeholder for personalized recommendations -->
+            <div id="personalized-content"></div>
+            
+            <!-- Placeholder for dynamic testimonials -->
+            <div id="testimonials-container"></div>
+        </div>
     </form>
 </body>
 </html>

@@ -1,153 +1,282 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Recipes.aspx.cs" Inherits="Global_Kitchen.recipes" %>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Global Kitchen - Recipes</title>
 
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f5dc, #f0e6d2, #e6d8b8);
-            color: #333;
+        /* === CSS VARIABLES === */
+        :root {
+            --primary-color: #ff6b35;
+            --secondary-color: #f7931e;
+            --accent-color: #ffb347;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* === NAVBAR === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            background: linear-gradient(135deg, #f5f5dc, #f0e6d2, #e6d8b8);
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* === STANDARD NAVBAR === */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 30px;
-            background: rgba(255,255,255,0.9);
-            position: sticky;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
             width: 100%;
             top: 0;
             left: 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 10;
-            flex-wrap: wrap;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transition: var(--transition);
             box-sizing: border-box;
         }
 
-        .header img {
-            height: 140px;
-            width: auto;
-            display: block;
-            margin: 0 auto;
+        .navbar:hover {
+            box-shadow: var(--shadow-hover);
         }
 
-        .title-area {
+        .navbar .header {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .header img {
+            height: 80px;
+            width: auto;
+            display: block;
+        }
+
+        .navbar .title-area {
             text-align: center;
             flex: 1;
             min-width: 200px;
         }
 
-        .subscript-text {
-            font-size: 16px;
-            color: #666;
+        .navbar .subscript-text {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: var(--text-light);
             margin-top: 4px;
         }
 
-        .site-title{
-            font-size: 36px;
-            font-weight: bold;
+        .navbar .site-title {
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            font-weight: 800;
             margin: 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .nav-links {
+        .navbar .nav-links {
             display: flex;
-            justify-content: center;
+            gap: 20px;
             align-items: center;
-            gap: 25px;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
         }
 
-        .nav-links a {
+        .navbar .nav-links a {
             text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s ease;
+            color: var(--text-dark);
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            font-size: 0.95rem;
         }
 
-        .nav-links a:hover {
-            color: #e67300;
+        .navbar .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.2), transparent);
+            transition: left 0.5s;
         }
 
-        /* === TOP SECTION === */
-        .top-section {
-            margin-top: 160px;
+        .navbar .nav-links a:hover::before {
+            left: 100%;
+        }
+
+        .navbar .nav-links a:hover {
+            color: var(--primary-color);
+            background: rgba(255, 107, 53, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* === SEARCH BAR === */
+        .search-section {
+            margin-top: 120px;
+            padding: 40px 20px;
             text-align: center;
-            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            margin-bottom: 40px;
         }
 
-        /* SEARCH BAR */
-        .search-bar {
+        .search-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .search-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 18px 25px;
+            border: 2px solid #e1e8ed;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            background: var(--white);
+            outline: none;
+            padding-right: 70px;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .search-button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 12px 25px;
+            border-radius: 50px;
+            border: none;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .search-button:hover {
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: var(--shadow-hover);
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+        }
+
+        /* === LAYOUT === */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+            margin: 0 auto;
+            max-width: 1400px;
+            padding: 0 20px;
+        }
+
+        /* === SIDEBAR === */
+        .sidebar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+        }
+
+        .sidebar h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .filter-group {
             margin-bottom: 25px;
         }
 
-        .search-bar input {
-            width: 60%;
-            max-width: 600px;
-            padding: 12px 20px;
-            border-radius: 25px;
-            border: 1px solid #ccc;
-            font-size: 18px;
-            transition: box-shadow 0.3s ease;
+        .filter-group label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 12px 0;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 8px 12px;
+            border-radius: var(--border-radius);
         }
 
-        .search-bar input:focus {
-            box-shadow: 0 0 10px rgba(230, 115, 0, 0.3);
+        .filter-group label:hover {
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--primary-color);
+        }
+
+        .filter-group input[type="checkbox"] {
+            accent-color: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        .filter-select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e1e8ed;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--white);
             outline: none;
         }
 
-        .search-bar button {
-            padding: 12px 25px;
-            margin-left: 10px;
-            border-radius: 25px;
-            border: none;
-            background: linear-gradient(135deg, #e67300, #ffb347);
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-        }
-
-        .search-bar button:hover {
-            transform: scale(1.05);
-        }
-
-        /* FILTER SECTION */
-        .filter-section {
-            max-width: 900px;
-            margin: 0 auto 50px auto;
-            background: rgba(255,255,255,0.9);
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            text-align: left;
-        }
-
-        .filter-section h3 {
-            margin-top: 0;
-            color: #333;
-        }
-
-        .filter-section label {
-            display: inline-block;
-            margin-right: 20px;
-            margin-bottom: 10px;
-        }
-
-        .filter-section select {
-            width: 100%;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            margin-top: 10px;
+        .filter-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
         }
 
         /* === MAIN CONTENT === */
@@ -161,297 +290,363 @@
         }
 
         .recipe-section {
-            background: rgba(255,255,255,0.9);
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            animation: fadeInUp 0.8s ease-out;
         }
 
-        .recipe-section h2 {
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header {
             text-align: center;
-            margin-bottom: 20px;
-            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1rem;
         }
 
         .recipe-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
         }
 
         .recipe-card {
-            width: 250px;
-            border-radius: 12px;
+            background: var(--white);
+            border-radius: var(--border-radius);
             overflow: hidden;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .recipe-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .recipe-card:hover::before {
+            opacity: 0.1;
         }
 
         .recipe-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-hover);
         }
 
-        .recipe-card img {
+        .recipe-image {
             width: 100%;
-            height: 180px;
+            height: 200px;
             object-fit: cover;
+            transition: var(--transition);
         }
 
-        .recipe-card h4 {
-            margin: 10px;
-            font-size: 18px;
+        .recipe-card:hover .recipe-image {
+            transform: scale(1.05);
         }
 
-        .recipe-card p {
-            margin: 0 10px 15px;
-            color: #666;
-            font-size: 14px;
+        .recipe-content {
+            padding: 20px;
+            position: relative;
+            z-index: 2;
         }
 
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            background: rgba(255,255,255,0.8);
-            margin-top: 40px;
-            font-size: 14px;
-            color: #555;
+        .recipe-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 10px;
         }
 
-        /* RESPONSIVE DESIGN */
-         @media (max-width: 1024px) {
-             .hero h1 { 
-                 font-size: 48px; 
-             }
+        .recipe-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
 
-             .hero p { 
-                 font-size: 18px;
-             }
+        .recipe-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
 
-             。header img{
-                 height: 120px;
-             }
+        .recipe-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
 
-             .site-title{
-                 font-size: 30px;
-             }
+        .recipe-time {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
 
-             .nav-links{
-                 gap: 20px;
-             }
-         }
+        /* === RESPONSIVE DESIGN === */
+        @media (max-width: 1024px) {
+            .content-wrapper {
+                grid-template-columns: 250px 1fr;
+                gap: 30px;
+            }
+        }
 
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
-                text-align: center;
-                height: auto;
-                padding: 8px 0;
+                padding: 15px 20px;
+                gap: 15px;
             }
-
-            .header img {
-                height: 120px;
-                margin-bottom: 4px;
+            
+            .navbar .header img {
+                height: 50px;
             }
-
-            .nav-links {
-                flex-wrap: wrap;
+            
+            .navbar .nav-links {
                 gap: 10px;
-                margin-top: 5px;
-            }
-
-            .nav-links a {
-                font-size: 15px;
-            }
-
-            .site-title {
-                font-size: 20px;
-                margin: 0;
-            }
-
-            .subscript-text {
-                font-size: 12px;
-                margin-top: 2px;
-            }
-
-            .title-area{
-                margin-bottom: 5px;
-            }
-
-            .hero {
-                padding: 130px;
-            }
-
-            .hero h1 {
-                font-size: 38px;
-            }
-
-            .hero p {
-                font-size: 17px;
-            }
-
-            .featured-recipes {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .footer-container {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .social-icons {
+                flex-wrap: wrap;
                 justify-content: center;
             }
+            
+            .navbar .nav-links a {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
 
-            .top-section{
-                margin-top: 80px;
+            .content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .sidebar {
+                position: static;
+                order: 2;
+            }
+            
+            .main-content {
+                order: 1;
+            }
+            
+            .search-section {
+                padding: 30px 15px;
+            }
+            
+            .recipe-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
             }
         }
 
         @media (max-width: 480px) {
-            .site-title {
-                font-size: 28px;
+            .content-wrapper {
+                padding: 0 15px;
             }
-
-            .header img {
-                height: 120px;
+            
+            .search-section {
+                padding: 20px 10px;
             }
-
-            .site-title {
-                font-size: 22px;
+            
+            .recipe-grid {
+                grid-template-columns: 1fr;
             }
-
-            .nav-link a {
-                font-size: 15px;
-            }
-
-            .hero h1 {
-                font-size: 30px;
-            }
-
-            .hero p {
-                font-size: 15px;
-            }
-
-            .recipe-card {
-                width: 90%;
-            }
-
-            .social-icons img {
-                width: 24px;
-                height: 24px;
-            }
-
-            .top-section{
-                margin-top: 80px;
+            
+            .recipe-section {
+                padding: 20px;
             }
         }
-
     </style>
 </head>
 
 <body>
-    <form id="form1" runat="server">
-        <!-- Navbar -->
+    <form id="form1">
+        <!-- Standard Navbar -->
         <header class="navbar">
             <div class="header">
-                <img src="Image/Logo.png" alt="Global Kitchen Logo" />
+                <img src="/Image/Logo.png" alt="Global Kitchen Logo" />
             </div>
 
             <div class="title-area">
-                <h1 class="site-title">Recipes</h1>
-                <p class="subscript-text">Discover dishes from every corner of the world</p>
+                <h1 class="site-title">Global Kitchen</h1>
+                <p class="subscript-text">Cooking lessons across cultures</p>
             </div>
 
             <nav class="nav-links">
-                <a href="Index.aspx">Home</a>
-                <a href="UserPage.aspx">Profile</a>
-                <a href="Login.aspx">Login</a>
+                <a href="/">Home</a>
+                <a href="/Home/Recipes">Recipes</a>
+                <a href="/Home/About">About</a>
+                <a href="/Home/UserPage">Profile</a>
+                <a href="/Home/Login">Login</a>
+                <a href="/Home/Admin">Admin</a>
             </nav>
         </header>
 
-        <!-- Top Section (Search + Filter) -->
-        <section class="top-section">
-            <div class="search-bar">
-                <input type="text" placeholder="Search recipes, cuisines, or chefs..." />
-                <button type="button">Search</button>
+        <!-- Search Section -->
+        <div class="search-section">
+            <h1 class="search-title">Discover Amazing Recipes</h1>
+            <p class="search-subtitle">Find your next favorite dish from around the world</p>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search recipes, cuisines, or chefs..." />
+                <button type="button" class="search-button">Search</button>
             </div>
+        </div>
 
-            <div class="filter-section">
-                <h3>Filter by Ingredients</h3>
-                <label><input type="checkbox" /> Chicken</label>
-                <label><input type="checkbox" /> Beef</label>
-                <label><input type="checkbox" /> Vegetables</label>
-                <label><input type="checkbox" /> Seafood</label>
-
-                <h3>Country</h3>
-                <select>
-                    <option value="">Select Country</option>
-                    <option>Japan</option>
-                    <option>Italy</option>
-                    <option>France</option>
-                    <option>Malaysia</option>
-                    <option>Mexico</option>
-                </select>
-            </div>
-        </section>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <section class="recipe-section">
-                <h2>🔥 Trending Recipes</h2>
-                <div class="recipe-grid">
-                    <div class="recipe-card">
-                        <img src="Image/Sushi.jpg" alt="Sushi" />
-                        <h4>Classic Sushi Rolls</h4>
-                        <p>Perfectly rolled with fresh fish and rice.</p>
-                    </div>
-
-                    <div class="recipe-card">
-                        <img src="Image/Pasta.jpg" alt="Pasta" />
-                        <h4>Spaghetti Carbonara</h4>
-                        <p>Creamy sauce with crispy pancetta.</p>
-                    </div>
+        <!-- Content Layout -->
+        <div class="content-wrapper">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="filter-group">
+                    <h3>Filter by Ingredients</h3>
+                    <label><input type="checkbox" /> Chicken</label>
+                    <label><input type="checkbox" /> Beef</label>
+                    <label><input type="checkbox" /> Vegetables</label>
+                    <label><input type="checkbox" /> Seafood</label>
+                    <label><input type="checkbox" /> Pasta</label>
+                    <label><input type="checkbox" /> Rice</label>
                 </div>
-            </section>
 
-            <section class="recipe-section">
-                <h2>⭐ Featured Recipes</h2>
-                <div class="recipe-grid">
-                    <div class="recipe-card">
-                        <img src="Image/Tacos.jpg" alt="Tacos" />
-                        <h4>Authentic Mexican Tacos</h4>
-                        <p>Rich flavor, soft tortillas, fresh lime.</p>
-                    </div>
-                    <div class="recipe-card">
-                        <img src="Image/Curry.jpg" alt="Curry" />
-                        <h4>Indian Curry Bowl</h4>
-                        <p>Spices and aroma that awaken the senses.</p>
-                    </div>
+                <div class="filter-group">
+                    <h3>Country</h3>
+                    <select class="filter-select">
+                        <option value="">Select Country</option>
+                        <option>Japan</option>
+                        <option>Italy</option>
+                        <option>France</option>
+                        <option>Malaysia</option>
+                        <option>Mexico</option>
+                        <option>India</option>
+                        <option>Thailand</option>
+                    </select>
                 </div>
-            </section>
 
-            <section class="recipe-section">
-                <h2>🍳 Today’s Recommendation</h2>
-                <div class="recipe-grid">
-                    <div class="recipe-card">
-                        <img src="Image/Ratatouille.jpg" alt="Ratatouille" />
-                        <h4>French Ratatouille</h4>
-                        <p>A warm, comforting vegetable stew.</p>
-                    </div>
+                <div class="filter-group">
+                    <h3>Difficulty</h3>
+                    <label><input type="checkbox" /> Beginner</label>
+                    <label><input type="checkbox" /> Intermediate</label>
+                    <label><input type="checkbox" /> Advanced</label>
                 </div>
-            </section>
-        </main>
+            </aside>
 
-        <!-- Footer -->
-        <footer>
-            © 2025 Global Kitchen. All rights reserved.
-        </footer>
+            <!-- Main Content -->
+            <main class="main-content">
+                <section class="recipe-section">
+                    <div class="section-header">
+                        <h2 class="section-title">🔥 Trending Recipes</h2>
+                        <p class="section-subtitle">What's popular right now</p>
+                    </div>
+                    <div class="recipe-grid">
+                        <div class="recipe-card">
+                            <img src="/Image/JapaneseSushi.jpg" alt="Sushi" class="recipe-image" />
+                            <div class="recipe-content">
+                                <h4 class="recipe-title">Classic Sushi Rolls</h4>
+                                <p class="recipe-description">Perfectly rolled with fresh fish and rice. Learn the art of Japanese sushi making.</p>
+                                <div class="recipe-meta">
+                                    <div class="recipe-rating">⭐ 4.8</div>
+                                    <div class="recipe-time">⏱️ 45 min</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="recipe-card">
+                            <img src="/Image/ItalianPasta.jpg" alt="Pasta" class="recipe-image" />
+                            <div class="recipe-content">
+                                <h4 class="recipe-title">Spaghetti Carbonara</h4>
+                                <p class="recipe-description">Creamy sauce with crispy pancetta. Authentic Italian comfort food.</p>
+                                <div class="recipe-meta">
+                                    <div class="recipe-rating">⭐ 4.9</div>
+                                    <div class="recipe-time">⏱️ 30 min</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="recipe-card">
+                            <img src="/Image/FrenchPastry.jpg" alt="Pastry" class="recipe-image" />
+                            <div class="recipe-content">
+                                <h4 class="recipe-title">French Croissants</h4>
+                                <p class="recipe-description">Buttery, flaky layers that melt in your mouth. Master the art of French baking.</p>
+                                <div class="recipe-meta">
+                                    <div class="recipe-rating">⭐ 4.7</div>
+                                    <div class="recipe-time">⏱️ 3 hours</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="recipe-section">
+                    <div class="section-header">
+                        <h2 class="section-title">🍳 Today's Recommendation</h2>
+                        <p class="section-subtitle">Perfect for today's cooking mood</p>
+                    </div>
+                    <div class="recipe-grid">
+                        <div class="recipe-card">
+                            <img src="/Image/ItalianPasta.jpg" alt="Special Dish" class="recipe-image" />
+                            <div class="recipe-content">
+                                <h4 class="recipe-title">Mediterranean Quinoa Bowl</h4>
+                                <p class="recipe-description">Fresh, healthy, and packed with Mediterranean flavors. Perfect for a nutritious meal.</p>
+                                <div class="recipe-meta">
+                                    <div class="recipe-rating">⭐ 4.9</div>
+                                    <div class="recipe-time">⏱️ 20 min</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Backend Integration Placeholders -->
+        <div id="dynamic-content" style="display: none;">
+            <!-- Placeholder for dynamic recipe data from database -->
+            <div id="recipe-database-container"></div>
+            
+            <!-- Placeholder for user favorites -->
+            <div id="user-favorites-container"></div>
+            
+            <!-- Placeholder for search results -->
+            <div id="search-results-container"></div>
+            
+            <!-- Placeholder for filter state -->
+            <div id="filter-state-container"></div>
+            
+            <!-- Placeholder for user ratings and reviews -->
+            <div id="ratings-reviews-container"></div>
+        </div>
     </form>
 </body>
 </html>
